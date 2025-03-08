@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("sk@gmail.com");
+  const [password, setPassword] = useState("Qwerty@123");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ const Login = () => {
 
       return navigate("/");
     } catch (err) {
-      console.log(err);
+      setError(err?.response?.data || "Something went wrong!");
     }
   };
 
@@ -40,9 +41,11 @@ const Login = () => {
           <fieldset className="fieldset">
             <legend className="fieldset-legend px-1">Email Id</legend>
             <input
-              type="text"
+              type="email"
+              name="email"
               value={emailId}
               className="input"
+              required
               placeholder=""
               onChange={(e) => setEmailId(e.target.value)}
             />
@@ -52,13 +55,16 @@ const Login = () => {
             <legend className="fieldset-legend px-1">Password</legend>
             <input
               type="password"
+              name="password"
               value={password}
+              required
               className="input"
               placeholder=""
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
 
+          <div className="text-red-500">{error}</div>
           <div className="card-actions justify-center my-4">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login

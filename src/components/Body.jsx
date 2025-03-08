@@ -7,15 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const userData = useSelector((store) => store.user);
 
   const fetchUser = async () => {
     try {
-      if (userData) return;
+      if (location.pathname.includes("/login") || userData) return;
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
       });
