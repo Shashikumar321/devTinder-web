@@ -39,7 +39,7 @@ const Connections = () => {
       {connections.map((connection) => {
         return (
           <ConnectionCard
-            key={connection.firstName}
+            key={connection?.firstName}
             connectionData={connection}
           />
         );

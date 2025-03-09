@@ -27,10 +27,10 @@ const Requests = () => {
 
   if (!requests) return;
 
-  if (requests.length === 0) return <h1>No connections found</h1>;
+  if (requests.length === 0) return <h1>No requests found</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center my-20">
       <h1 className="text-bold text-xl">Requests</h1>
       <h3 className="p-4 pb-2 text-xs opacity-60 tracking-wide">
         People who are interested in you
