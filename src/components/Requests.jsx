@@ -14,7 +14,6 @@ const Requests = () => {
       const res = await axios.get(BASE_URL + "/user/requests/received", {
         withCredentials: true,
       });
-      console.log("res ", res.data.data)
       dispatch(addRequest(res.data.data));
     } catch (err) {
       console.log(err);
@@ -25,9 +24,7 @@ const Requests = () => {
     fetchRequests();
   }, []);
 
-  if (!requests) return;
-
-  if (requests.length === 0) return <h1>No requests found</h1>;
+  if (requests?.length === 0 || !requests) return <h1 className="text-center my-10">No requests found</h1>;
 
   return (
     <div className="text-center my-20">

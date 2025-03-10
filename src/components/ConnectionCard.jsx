@@ -3,7 +3,7 @@ const ConnectionCard = ({ connectionData }) => {
     connectionData;
 
   return (
-    <div className="card bg-base-100 w-full md:w-1/3 shadow-sm">
+    <div className="card bg-base-100 w-full lg:w-1/3 shadow-sm">
       <ul className="m-10 list bg-gray-700 rounded-box shadow-md">
         <li className="list-row">
           <div>

@@ -1,9 +1,10 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeRequest } from "../utils/requestSlice";
 
 const RequestCard = ({ requestData }) => {
-  const [showToast, setShowToast] = useState(false);
+  const dispatch = useDispatch();
   const { fromUserId, _id } = requestData;
   const { firstName, lastName, age, gender, about, skills, photoUrl } =
     fromUserId;
@@ -16,16 +17,7 @@ const RequestCard = ({ requestData }) => {
       );
 
       if (res.status === 200) {
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-        setShowToast(true);
-
-        setTimeout(() => {
-          setShowToast(false);
-        }, 5000);
+        dispatch(removeRequest(_id));
       }
     } catch (err) {
       console.log(err);
@@ -88,14 +80,6 @@ const RequestCard = ({ requestData }) => {
           </button>
         </li>
       </ul>
-
-      {showToast && (
-        <div className="mt-18 toast toast-top toast-center">
-          <div className="alert alert-success">
-            <span>Profile updated successfully!</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

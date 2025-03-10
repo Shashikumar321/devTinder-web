@@ -25,11 +25,9 @@ const Connections = () => {
     fetchConnections();
   }, []);
 
-  if (!connections) return;
+  if (connections?.length === 0 || !connections) return <h1 className="text-center my-10">No connections found</h1>;
 
-  if (connections.length === 0) return <h1>No connections found</h1>;
-
-  return (
+  return connections && (
     <div className="text-center my-10">
       <h1 className="text-bold text-xl">Connections</h1>
       <h3 className="p-4 pb-2 text-xs opacity-60 tracking-wide">
