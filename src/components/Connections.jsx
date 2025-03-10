@@ -28,7 +28,7 @@ const Connections = () => {
   if (connections?.length === 0 || !connections) return <h1 className="text-center my-10">No connections found</h1>;
 
   return connections && (
-    <div className="text-center my-10">
+    <div className="text-center mt-10 mb-30">
       <h1 className="text-bold text-xl">Connections</h1>
       <h3 className="p-4 pb-2 text-xs opacity-60 tracking-wide">
         Your Friends

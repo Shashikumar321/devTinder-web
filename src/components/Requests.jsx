@@ -27,7 +27,7 @@ const Requests = () => {
   if (requests?.length === 0 || !requests) return <h1 className="text-center my-10">No requests found</h1>;
 
   return (
-    <div className="text-center my-20">
+    <div className="text-center mt-10 mb-30">
       <h1 className="text-bold text-xl">Requests</h1>
       <h3 className="p-4 pb-2 text-xs opacity-60 tracking-wide">
         People who are interested in you

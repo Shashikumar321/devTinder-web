@@ -26,7 +26,7 @@ const RequestCard = ({ requestData }) => {
 
   return (
     <div className="card bg-base-100 w-full md:w-1/3 shadow-sm">
-      <ul className="m-10 list bg-gray-700 rounded-box shadow-md">
+      <ul className="m-4 list bg-gray-700 rounded-box shadow-md">
         <li className="list-row">
           <div>
             <img className="size-20 rounded-box" src={photoUrl} />
